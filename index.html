@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confeitaria Caseira: Análise de Mercado 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --dark-2: #1a1a1a;
+    --dark-3: #222222;
+    --border: #2a2a2a;
+    --border-light: #333333;
+    --text-muted: #888888;
+    --text-secondary: #aaaaaa;
+    --text-primary: #e8e8e8;
+    --gold: #c9a84c;
+    --gold-light: #d4b76a;
+    --gold-dim: rgba(201, 168, 76, 0.12);
+    --gold-border: rgba(201, 168, 76, 0.3);
+    --white: #f5f5f0;
+    --green: #4caf7d;
+    --green-dim: rgba(76, 175, 125, 0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text-primary);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* TICKER */
+  .ticker-bar {
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 7px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+  }
+  .ticker-inner span { padding: 0 40px; }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* NAV */
+  nav {
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 9px 20px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: radial-gradient(ellipse at top right, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-border);
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 32px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--white);
+    max-width: 760px;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    max-width: 640px;
+    border: 1px solid var(--border);
+  }
+  .hero-stat {
+    background: var(--dark-2);
+    padding: 24px;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  /* MARKET NUMBERS */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .market-card {
+    background: var(--dark-2);
+    padding: 32px;
+    position: relative;
+  }
+  .market-card-accent {
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .market-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .market-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .market-card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .insight-box {
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-border);
+    padding: 24px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .insight-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .insight-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .insight-text strong { color: var(--gold-light); font-weight: 600; }
+
+  /* OPPORTUNITY */
+  .opp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .opp-card {
+    background: var(--dark-2);
+    padding: 28px;
+  }
+  .opp-card-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .opp-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .opp-card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .opp-card-metric {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .opp-metric-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .opp-metric-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* PRODUCTS TABLE */
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+  }
+  .products-table th {
+    background: var(--dark-3);
+    padding: 14px 20px;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  .products-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .products-table tr:last-child td { border-bottom: none; }
+  .products-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .td-product {
+    font-weight: 500;
+    color: var(--text-primary) !important;
+  }
+  .td-gold { color: var(--gold) !important; font-weight: 600; font-family: 'IBM Plex Mono', monospace; }
+  .rank-badge {
+    display: inline-block;
+    width: 24px; height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-border);
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .bar-wrap { display: flex; align-items: center; gap: 10px; }
+  .bar { height: 4px; background: var(--border); flex: 1; max-width: 100px; }
+  .bar-fill { height: 100%; background: var(--gold); opacity: 0.7; }
+
+  /* HOW TO START */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .step-card {
+    background: var(--dark-2);
+    padding: 28px 24px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--border-light);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .step-arrow {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--gold);
+    z-index: 1;
+  }
+
+  /* METHOD ANALYSIS */
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+  .method-panel {
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    padding: 32px;
+  }
+  .method-panel-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+  .method-list li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .method-list li:last-child { border-bottom: none; }
+  .method-check { color: var(--green); font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+  .method-x { color: #e05555; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .rating-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    width: 140px;
+    flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+  }
+  .rating-bar { flex: 1; height: 4px; background: var(--border); }
+  .rating-fill { height: 100%; background: var(--gold); }
+  .rating-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    width: 36px;
+    text-align: right;
+  }
+
+  /* CTA SECTIONS */
+  .cta-block {
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
+    padding: 48px 40px;
+    text-align: center;
+    margin: 56px 0;
+  }
+  .cta-block-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .cta-block-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .cta-block-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* BANNER CTA */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--gold-dim) 0%, transparent 60%);
+    border: 1px solid var(--gold-border);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 48px 0;
+  }
+  .cta-banner-text {
+    font-size: 15px;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+  .cta-banner-text strong { color: var(--gold-light); }
+  .cta-btn-sm {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .cta-btn-sm:hover { background: var(--gold-light); }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+  }
+  .faq-q {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .faq-q::before {
+    content: 'Q';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-border);
+    padding: 3px 7px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .faq-a {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-left: 36px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+  .footer-cta-link {
+    font-size: 12px;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+    margin: 40px 0;
+  }
+
+  /* HIGHLIGHTS */
+  .highlight-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .highlight-item {
+    background: var(--dark-2);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .highlight-dot {
+    width: 8px; height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .highlight-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-stats { grid-template-columns: repeat(3, 1fr); }
+    .market-grid, .method-grid { grid-template-columns: 1fr; }
+    .opp-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .step-arrow { display: none; }
+    .cta-banner { flex-direction: column; text-align: center; }
+    .footer-inner { flex-direction: column; text-align: center; gap: 12px; }
+    .highlight-row { grid-template-columns: 1fr 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span>▲ CONFEITARIA ARTESANAL: R$ 20 BILHÕES/ANO &nbsp;|</span>
+    <span>PANETONE GOURMET: MARGEM ATÉ 70% &nbsp;|</span>
+    <span>MERCADO EM CRESCIMENTO: +18% AA &nbsp;|</span>
+    <span>BAIXO INVESTIMENTO INICIAL &nbsp;|</span>
+    <span>SEM LOJA FÍSICA NECESSÁRIA &nbsp;|</span>
+    <span>▲ CONFEITARIA ARTESANAL: R$ 20 BILHÕES/ANO &nbsp;|</span>
+    <span>PANETONE GOURMET: MARGEM ATÉ 70% &nbsp;|</span>
+    <span>MERCADO EM CRESCIMENTO: +18% AA &nbsp;|</span>
+    <span>BAIXO INVESTIMENTO INICIAL &nbsp;|</span>
+    <span>SEM LOJA FÍSICA NECESSÁRIA &nbsp;|</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div>
+      <div class="nav-logo">Ateliê do <span>Panetone</span></div>
+      <div class="nav-tag">Análise de Mercado · Oportunidade de Negócio</div>
+    </div>
+    <a href="https://pay.kiwify.com.br/Pl5X8r0" class="nav-cta">Acessar o Método →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Relatório de Mercado 2026</div>
+    <h1>O mercado da confeitaria caseira está crescendo mais do que <em>você imagina</em></h1>
+    <p class="hero-subtitle">Uma análise objetiva do setor artesanal alimentício e por que o panetone gourmet representa uma das melhores oportunidades de renda de baixo custo no Brasil.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">R$20bi</div>
+        <div class="hero-stat-label">Mercado anual</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">+18%</div>
+        <div class="hero-stat-label">Crescimento aa</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">70%</div>
+        <div class="hero-stat-label">Margem gourmet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: QUANTO MOVIMENTA -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">01 — Tamanho do Mercado</div>
+      <h2 class="section-title">Quanto esse mercado movimenta</h2>
+      <p class="section-desc">Dados do setor alimentício artesanal no Brasil mostram uma realidade mais sólida do que muitos percebem.</p>
+    </div>
+
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-accent"></div>
+        <div class="market-card-num">R$ 20bi</div>
+        <div class="market-card-title">Mercado de panificação artesanal</div>
+        <div class="market-card-desc">Movimentação anual estimada do setor de confeitaria e panificação artesanal no Brasil, incluindo produção caseira e pequenas operações.</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-accent"></div>
+        <div class="market-card-num">18%</div>
+        <div class="market-card-title">Crescimento anual do segmento gourmet</div>
+        <div class="market-card-desc">O segmento premium cresce acima da média do varejo tradicional, impulsionado por consumidores que priorizam artesanal sobre industrial.</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-accent"></div>
+        <div class="market-card-num">3x</div>
+        <div class="market-card-title">Valor percebido vs. custo de produção</div>
+        <div class="market-card-desc">Um produto artesanal posicionado como gourmet pode ser vendido por até 3 vezes mais do que seu custo de matéria-prima.</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-accent"></div>
+        <div class="market-card-num">+40M</div>
+        <div class="market-card-title">Consumidores em datas sazonais</div>
+        <div class="market-card-desc">Volume de consumidores que compram produtos artesanais no período natalino — mercado concentrado em poucos meses com alto volume.</div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-icon">◈</div>
+      <div class="insight-text">
+        <strong>Insight estratégico:</strong> A sazonalidade do setor (concentrada em Natal, Páscoa e datas comemorativas) é frequentemente apontada como desvantagem, mas representa na prática uma oportunidade de receita concentrada — alta demanda em curto prazo, com planejamento adequado.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="container">
+  <div class="cta-banner">
+    <div class="cta-banner-text">O método que ensina a <strong>produzir e vender panetones gourmet</strong> do zero, sem experiência prévia.</div>
+    <a href="https://pay.kiwify.com.br/Pl5X8r0" class="cta-btn-sm">Ver Ateliê do Panetone →</a>
+  </div>
+</div>
+
+<!-- SECTION 2: OPORTUNIDADES REAIS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">02 — Análise de Oportunidade</div>
+      <h2 class="section-title">Oportunidades reais no setor</h2>
+      <p class="section-desc">Três frentes de entrada com diferentes perfis de risco, retorno e dedicação.</p>
+    </div>
+
+    <div class="opp-grid">
+      <div class="opp-card">
+        <div class="opp-card-num">OPP — 01</div>
+        <div class="opp-card-title">Renda Extra Sazonal</div>
+        <div class="opp-card-desc">Produção voltada exclusivamente para datas comemorativas (Natal, Páscoa, Dia das Mães). Investimento mínimo, aprendizado rápido e retorno em curto prazo.</div>
+        <div class="opp-card-metric">
+          <div class="opp-metric-val">Baixo</div>
+          <div class="opp-metric-label">risco / entrada</div>
+        </div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card-num">OPP — 02</div>
+        <div class="opp-card-title">Negócio Contínuo</div>
+        <div class="opp-card-desc">Operação de encomendas e vendas regulares ao longo do ano. Inclui doces artesanais, sobremesas e kits presenteáveis para clientes recorrentes.</div>
+        <div class="opp-card-metric">
+          <div class="opp-metric-val">Médio</div>
+          <div class="opp-metric-label">escala / dedicação</div>
+        </div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card-num">OPP — 03</div>
+        <div class="opp-card-title">Linha Premium</div>
+        <div class="opp-card-desc">Posicionamento como marca artesanal com produtos premium, kits personalizados e embalagens diferenciadas. Maior margem, maior esforço de branding.</div>
+        <div class="opp-card-metric">
+          <div class="opp-metric-val">Alta</div>
+          <div class="opp-metric-label">margem / retorno</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: PRODUTOS MAIS VENDIDOS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">03 — Produtos do Setor</div>
+      <h2 class="section-title">Produtos mais vendidos na confeitaria caseira</h2>
+      <p class="section-desc">Ranking por volume de demanda, margem estimada e sazonalidade de mercado.</p>
+    </div>
+
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Produto</th>
+          <th>Margem Estimada</th>
+          <th>Sazonalidade</th>
+          <th>Demanda</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="rank-badge">1</span></td>
+          <td class="td-product">Panetone Gourmet</td>
+          <td class="td-gold">60–70%</td>
+          <td>Alta (Natal)</td>
+          <td><div class="bar-wrap"><div class="bar"><div class="bar-fill" style="width:95%"></div></div><span style="font-size:12px;color:#888">95</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">2</span></td>
+          <td class="td-product">Chocotone Recheado</td>
+          <td class="td-gold">55–65%</td>
+          <td>Alta (Natal)</td>
+          <td><div class="bar-wrap"><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span style="font-size:12px;color:#888">88</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">3</span></td>
+          <td class="td-product">Kits Presenteáveis</td>
+          <td class="td-gold">50–65%</td>
+          <td>Alta (datas)</td>
+          <td><div class="bar-wrap"><div class="bar"><div class="bar-fill" style="width:82%"></div></div><span style="font-size:12px;color:#888">82</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">4</span></td>
+          <td class="td-product">Panetone Trufado Premium</td>
+          <td class="td-gold">65–75%</td>
+          <td>Média-Alta</td>
+          <td><div class="bar-wrap"><div class="bar"><div class="bar-fill" style="width:74%"></div></div><span style="font-size:12px;color:#888">74</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">5</span></td>
+          <td class="td-product">Doces Artesanais</td>
+          <td class="td-gold">45–60%</td>
+          <td>Contínua</td>
+          <td><div class="bar-wrap"><div class="bar"><div class="bar-fill" style="width:70%"></div></div><span style="font-size:12px;color:#888">70</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">6</span></td>
+          <td class="td-product">Sobremesas Encomendadas</td>
+          <td class="td-gold">40–55%</td>
+          <td>Contínua</td>
+          <td><div class="bar-wrap"><div class="bar"><div class="bar-fill" style="width:62%"></div></div><span style="font-size:12px;color:#888">62</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 4: COMO COMEÇAR -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">04 — Processo de Entrada</div>
+      <h2 class="section-title">Como começar do zero</h2>
+      <p class="section-desc">O modelo de entrada na confeitaria caseira segue um processo direto e replicável.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Aprender</div>
+        <div class="step-desc">Dominar as técnicas e receitas fundamentais. Nesta fase, o foco é entender o processo de produção com padrão de venda.</div>
+        <div class="step-arrow">›</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Produzir</div>
+        <div class="step-desc">Testar e refinar até atingir consistência. O produto precisa de padrão visual e gustativo antes de ser oferecido ao mercado.</div>
+        <div class="step-arrow">›</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Posicionar</div>
+        <div class="step-desc">Definir preço, apresentação e público-alvo. O posicionamento gourmet impacta diretamente na margem obtida.</div>
+        <div class="step-arrow">›</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Vender</div>
+        <div class="step-desc">Utilizar redes sociais, indicações e encomendas para gerar receita. A consistência na divulgação determina a escala.</div>
+      </div>
+    </div>
+
+    <div class="highlight-row">
+      <div class="highlight-item">
+        <div class="highlight-dot"></div>
+        <div class="highlight-text">Sem loja física necessária</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-dot"></div>
+        <div class="highlight-text">Começa em casa</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-dot"></div>
+        <div class="highlight-text">Baixo investimento inicial</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-dot"></div>
+        <div class="highlight-text">Alta margem em gourmet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BLOCK -->
+<div class="container">
+  <div class="cta-block">
+    <div class="cta-block-label">Acesso ao método completo</div>
+    <div class="cta-block-title">Ateliê do Panetone:<br>do aprendizado à primeira venda</div>
+    <div class="cta-block-desc">Treinamento focado em produção de panetones gourmet e doces artesanais para venda. Sem experiência necessária.</div>
+    <a href="https://pay.kiwify.com.br/Pl5X8r0" class="cta-btn">Quero Começar Agora →</a>
+  </div>
+</div>
+
+<!-- SECTION 5: ANÁLISE DO MÉTODO -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">05 — Avaliação do Modelo</div>
+      <h2 class="section-title">Análise do método Ateliê do Panetone</h2>
+      <p class="section-desc">Uma leitura objetiva do que o treinamento oferece, suas vantagens e o que exige do operador.</p>
+    </div>
+
+    <div class="method-grid">
+      <div class="method-panel">
+        <div class="method-panel-title">// Fatores favoráveis</div>
+        <ul class="method-list">
+          <li><span class="method-check">✓</span> Não exige loja física ou estrutura comercial</li>
+          <li><span class="method-check">✓</span> Pode ser iniciado com baixo capital</li>
+          <li><span class="method-check">✓</span> Alta margem em produtos premium</li>
+          <li><span class="method-check">✓</span> Escalável em períodos sazonais</li>
+          <li><span class="method-check">✓</span> Conteúdo inclui técnicas + posicionamento de venda</li>
+          <li><span class="method-check">✓</span> Produto com alta demanda e valor percebido elevado</li>
+        </ul>
+      </div>
+      <div class="method-panel">
+        <div class="method-panel-title">// O que exige do operador</div>
+        <ul class="method-list">
+          <li><span class="method-x">▸</span> Prática e repetição para atingir padrão de venda</li>
+          <li><span class="method-x">▸</span> Organização para gestão de encomendas</li>
+          <li><span class="method-x">▸</span> Consistência na divulgação e captação</li>
+          <li><span class="method-x">▸</span> Resultados dependem da execução individual</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="method-panel">
+      <div class="method-panel-title" style="margin-bottom:24px">// Avaliação por critério</div>
+      <div class="rating-row">
+        <div class="rating-label">Custo de entrada</div>
+        <div class="rating-bar"><div class="rating-fill" style="width:90%"></div></div>
+        <div class="rating-val">9/10</div>
+      </div>
+      <div class="rating-row">
+        <div class="rating-label">Potencial de margem</div>
+        <div class="rating-bar"><div class="rating-fill" style="width:85%"></div></div>
+        <div class="rating-val">8.5/10</div>
+      </div>
+      <div class="rating-row">
+        <div class="rating-label">Demanda de mercado</div>
+        <div class="rating-bar"><div class="rating-fill" style="width:80%"></div></div>
+        <div class="rating-val">8/10</div>
+      </div>
+      <div class="rating-row">
+        <div class="rating-label">Curva de aprendizado</div>
+        <div class="rating-bar"><div class="rating-fill" style="width:75%"></div></div>
+        <div class="rating-val">7.5/10</div>
+      </div>
+      <div class="rating-row">
+        <div class="rating-label">Escalabilidade</div>
+        <div class="rating-bar"><div class="rating-fill" style="width:70%"></div></div>
+        <div class="rating-val">7/10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">06 — Perguntas Frequentes</div>
+      <h2 class="section-title">FAQ</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Preciso ter experiência prévia em confeitaria?</div>
+      <div class="faq-a">Não. O treinamento é estruturado para iniciantes e inclui as técnicas de produção do nível básico. A curva de aprendizado depende da dedicação à prática.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">O mercado de panetones gourmet ainda tem espaço?</div>
+      <div class="faq-a">Sim. O segmento artesanal e gourmet continua em crescimento, especialmente em datas sazonais. A demanda por produtos artesanais supera a capacidade de fornecedores locais em muitas regiões.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Qual é o investimento inicial necessário?</div>
+      <div class="faq-a">O modelo é projetado para baixo capital inicial. Os principais custos são o acesso ao treinamento e matéria-prima básica de confeitaria, sem necessidade de equipamentos industriais.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Posso vender o ano todo ou apenas no Natal?</div>
+      <div class="faq-a">O treinamento cobre doces artesanais e sobremesas que permitem operação contínua. O Natal representa o pico de demanda para panetones, mas a linha de produtos pode ser expandida para vendas regulares.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Esse modelo funciona como renda extra?</div>
+      <div class="faq-a">Para quem executa o processo de divulgação e mantém consistência na produção, o modelo tem histórico de funcionar como renda complementar. Os resultados variam conforme a dedicação e o mercado local.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding: 80px 0; background: var(--dark-2); border-top: 1px solid var(--border);">
+  <div class="container" style="text-align: center;">
+    <div class="section-label" style="justify-content: center; margin-bottom: 20px;">Acesso Imediato</div>
+    <h2 class="section-title" style="max-width: 560px; margin: 0 auto 16px;">A oportunidade não muda. A decisão de entrar, sim.</h2>
+    <p class="section-desc" style="margin: 0 auto 36px; text-align: center;">O Ateliê do Panetone é uma das formas mais diretas de entrar no mercado de confeitaria artesanal com método e estratégia.</p>
+    <a href="https://pay.kiwify.com.br/Pl5X8r0" class="cta-btn" style="font-size: 14px; padding: 18px 52px;">Acessar o Ateliê do Panetone →</a>
+    <p style="margin-top: 20px; font-size: 12px; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace;">Acesso digital imediato após confirmação</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Ateliê do <span>Panetone</span></div>
+    <div class="footer-note">© 2026 · Análise de Mercado & Oportunidade de Negócio</div>
+    <a href="https://pay.kiwify.com.br/Pl5X8r0" class="footer-cta-link">Acessar →</a>
+  </div>
+</footer>
+
+</body>
+</html>
